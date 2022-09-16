@@ -30,7 +30,6 @@ Tenemos que copiar la clave pública que generamos en el primer paso (la que aca
 Clickamos sobre el botón de añadir nueva clave ssh e introducimos un título para la misma. Pegamos la clave pública generada en el cuadrado donde se indica *key* o *clave*.
 
 Es posible que se nos pida confirmación tras pulsar el botón de confirmar.
-
 ## Resultado final
 
 Como se puede ver en la figura inferior, tenemos varias claves ssh que nos permiten hacer uso de nuestro repositorio desde nuestro portátil, nuestro ordenador de torre y nuestro servidor privado.
@@ -43,8 +42,12 @@ Esta foto es de mi perfil de GitHub, el menú de *Claves SSH y GPG*.
 
 A partir de ahora, para usar nuestro par de claves, tan solo tendremos que asegurarnos de clonar un repositorio a local con el enlace de ssh, no con el de http.
 
-Se puede apreciar en las dos figuras inferiores que una tiene la url de https y la otra de ssh.
+Se puede apreciar en la figura inferior que una tiene la url de https y la otra de ssh.
 
 Como vemos, la url de ssh comienza por *git@*, mientras que la url de https comienza por *https://*.
 
 Si usamos la url de https, nos pedirá contraseña, la cual está sin soporte desde el 13 de agosto del 2021.
+
+![SSH Keys](./../imgs/http_link.png)
+
+![SSH Keys](./../imgs/ssh_link.png)
