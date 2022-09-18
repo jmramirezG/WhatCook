@@ -6,8 +6,14 @@ A todo el mundo le ha pasado eso de **no saber qué comer**, ya sea porque no he
 
 Es de **vital** importancia **comer bien**, ya que esto se reflejará en un futuro en nuestra salud.
 
-También está el **problema económico**: ¿dónde compro para que el precio sea el menor posible?
-Con los **precios subiendo** cada vez más, el **ciudadano medio** suele verse **ajustado** a la hora de realizar compras abundantes, con lo que **comprar lo justo** y necesario se vuelve aún más **importante**.
+Con los **precios subiendo** cada vez más, el **ciudadano medio** suele verse **ajustado** a la hora de realizar compras abundantes, con lo que **comprar lo justo** y necesario se vuelve aún más **importante**. Esto influye en nuestro problema principal, ya que al comprar lo justo, no se cuenta con *tanta cantidad de ingredientes*, lo que puede llevar a la frustración comentada inicialmente.
+
+## Sintetización del problema
+
+* Indecisión o falta de creatividad a la hora de cocinar -> Dietas pobres, monotonía en la comida.
+* Subida en los precios de los alimentos -> Pocos ingredientes disponibles para realizar las comidas.
+
+Estos problemas pueden tener un efecto muy negativo en la salud, tanto física como mental.
 
 ---
 
@@ -18,6 +24,30 @@ Se propone un sistema que ofrezca la posibilidad al usuario de que **introduzca 
 En el caso de no poder hacer nada, le propondría **recetas para las que tuviera que comprar algún ingrediente**, los menos posibles.
 
 En este último caso, se podrían **usar los datos extraídos de los tickets** para sugerir al usuario dónde realizar la compra para que le salga **lo más barato posible**.
+
+---
+
+## Lógica de negocio detrás de la solución
+
+Nuestro sistema:
+
+* Transforma una foto de un ticket de compra, extrayendo el texto de la misma y usándolos como ingredientes a la hora de localizar la receta.
+* Calcula una o más recetas que se ajusten a los ingredientes proporcionados por el usuario.
+* Permite al usuario visualizar y extraer los ingredientes que le falten por comprar en caso de que no tuviera suficientes ingredientes.
+* Valida que la(s) receta(s) proporcionada(s) coincida(n) en la medida de lo posible con los ingredientes del usuario.
+* Calcula el precio aproximado de compra de los ingredientes restantes, en caso de tener suficientes datos para ello.
+
+### Flujo de los datos
+
+1. Se introduce una foto o una lista de ingredientes.
+2. Si es una foto:
+
+   Se extraen los ingredientes mediante reconocimiento de texto, se añaden a la lista y se vuelve al primer paso. Los precios de los distintos elementos comprados se guardan para futuras comparativas de precios.
+
+   Si es una lista de ingredientes, se sigue al paso 3.
+3. Se hace una búsqueda de las posibles recetas que contengan el mayor número de ingredientes de los introducidos.
+4. En el caso de faltar ingredientes, se hace comparativa de precio, indicando al usuario dónde le resultaría más barato comprar los ingredientes restantes para cada receta.
+5. Se le muestran al usuario una lista de recetas que se ajusten a los ingredientes que tiene. Para los ingredientes faltantes, se le sugiere el mejor sitio(basado en los últimos datos recibidos) para ir a comprar.
 
 ---
 
@@ -44,3 +74,26 @@ El despliegue en la nube de una aplicación con estas características tiene las
 ## Docs
 
 * [Objetivo 0](docs/objetivo0/git_config.md).
+
+---
+  
+## Licencia
+
+WhatCook
+
+Copyright (C) 2022  José María Ramírez González \<jm.ramirez.gonza@gmail.com\>
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU Affero General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License
+along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+---
