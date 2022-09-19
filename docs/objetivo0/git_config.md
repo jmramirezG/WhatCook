@@ -29,6 +29,7 @@ Tenemos que copiar la clave pública que generamos en el primer paso (la que aca
 Clickamos sobre el botón de añadir nueva clave ssh e introducimos un título para la misma. Pegamos la clave pública generada en el cuadrado donde se indica *key* o *clave*.
 
 Es posible que se nos pida confirmación tras pulsar el botón de confirmar.
+
 ## Resultado final
 
 Como se puede ver en la figura inferior, tenemos varias claves ssh que nos permiten hacer uso de nuestro repositorio desde nuestro portátil, nuestro ordenador de torre y nuestro servidor privado.
