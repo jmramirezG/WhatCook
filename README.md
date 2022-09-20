@@ -56,7 +56,7 @@ Este será nuestro modelo, tendremos:
 
 El personal de barra cobrará de los identificadores a los socios, y los cambios quedarán reflejados a tiempo real para todos los usuarios.
 
-La idea y el valor de la misma reside en establecer orden en un grupo que suele ser caótico, proporcionándoles los métodos para tener una visión unificada de la peña/asociación.
+La idea y el valor de la misma reside en establecer orden en un grupo que suele ser caótico, proporcionándoles los métodos para tener una visión única de la gestión de la peña/asociación.
 
 ---
 
