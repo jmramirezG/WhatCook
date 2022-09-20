@@ -1,71 +1,68 @@
 # Propuesta del problema
 
-Cada día que pasa estamos más ocupados que el anterior, lo que nos puede llevar a **no tener tiempo** para realizar tareas cotidianas como ir a comprar o plantear un menú semanal.
+Las peñas y pequeñas asociaciones suelen hacer "barras" o pequeñas fiestas para los miembros de las mismas.
 
-A todo el mundo le ha pasado eso de **no saber qué comer**, ya sea porque no hemos pensado nada o porque tenemos un popurrí de ingredientes con el que no sabemos qué cocinar.
+Es necesario llevar un control acerca de la contabilidad de la asociación o peña, lo cual se vuelve complicado, ya que o bien se lleva a papel (que acaba perdiéndose) o el software existente no está adaptado a la naturaleza de una peña/asociación.
 
-Es de **vital** importancia **comer bien**, ya que esto se reflejará en un futuro en nuestra salud.
-
-Con los **precios subiendo** cada vez más, el **ciudadano medio** suele verse **ajustado** a la hora de realizar compras abundantes, con lo que **comprar lo justo** y necesario se vuelve aún más **importante**. Esto influye en nuestro problema principal, ya que al comprar lo justo, no se cuenta con *tanta cantidad de ingredientes*, lo que puede llevar a la frustración comentada inicialmente.
+Muchas peñas además, organizan "premios" repartidos entre aquellos que más consumen durante estas barras o fiestas, y llevar un control de esto resulta muy tedioso sin el software adecuado.
 
 ## Sintetización del problema
 
-* Indecisión o falta de creatividad a la hora de cocinar -> Dietas pobres, monotonía en la comida.
-* Subida en los precios de los alimentos -> Pocos ingredientes disponibles para realizar las comidas.
-
-Estos problemas pueden tener un efecto muy negativo en la salud, tanto física como mental.
+* Gestión de las cuentas de la asociación/peña durante las barras o fiestas que organiza.
+* Registro de cúanto consume cada socio, ofreciendo estadísticas disponibles a la administración de la asociación/peña.
 
 ---
 
 ## Propuesta de la solución
 
-Se propone un sistema que ofrezca la posibilidad al usuario de que **introduzca los ingredientes disponibles** (bien mediante el escaneo de un ticket de compra o mediante la introducción manual de los ingredientes) y le **proponga al usuario una lista de recetas** que se podrían hacer con esos ingredientes, junto al precio aproximado por persona.
+Se propone un sistema que ofrezca a una asociación o peña prescindir de los tickets y del dinero físico, asignando a cada socio una tarjeta (bien con un QR o RFID), en la que el socio podrá cargar dinero en la administración de la asociación/peña.
 
-En el caso de no poder hacer nada, le propondría **recetas para las que tuviera que comprar algún ingrediente**, los menos posibles.
+Esta tarjeta se usará por el personal de barra para cobrar las consumiciones del socio, prescindiendo del dinero "real".
+Esto permite llevar un registro completo de qué se ha gastado, quién ha consumido qué y cúanto ha consumido cada uno.
 
-En este último caso, se podrían **usar los datos extraídos de los tickets de todos los usuarios** (tendremos un histórico) para sugerir al usuario dónde realizar la compra para que le salga **lo más barato posible**.
+A su vez, se permite la exportación del histórico de las barras a un excel, permitiendo así el control integral de las cuentas relacionadas con las barras/pequeñas fiestas.
 
-El sitio a realizar la compra será cercano al usuario, estableciendo la ubicación aproximada del cliente (por ejemplo, podemos saber si una persona se conecta a nuestra web desde Granada capital o desde Armilla) para recomendarle un supermercado que no se encuentre demasiado lejos.
+El administrador del sistemas podrá:
+
+* Introducir el dinero que se encuentra en caja y el inventario de cada bebida.
+* Dar de alta a nuevos socios, escaneando la tarjeta antes de dársela e introduciendo sus datos.
+* Dar de baja a socios que dejen de formar parte de la asociación.
+* Variar los precios de los productos en venta.
+* Variar los productos en venta (añadir/quitar productos).
+* Nombrar encargados de barra para un evento, ya que en las peñas suele variar entre fiestas quién se encarga de la barra.
+* Obtener un excel con el estado actual de las cuentas en cualquier momento.
+* Introducir gastos e inversiones, por ejemplo, con la compra de productos nuevos y pagos.
+* Obtener un ranking de personas que más han consumido desde una fecha concreta.
+
+El usuario podrá:
+
+* Consultar su saldo en cualqier momento, mediante el escanéo del código QR o haciendo uso de un lector RFID.
+* Consultar su gasto desde una fecha concreta.
+* Consultar su posición en el ranking de consumiciones desde una fecha.
 
 ---
 
 ## Lógica de negocio detrás de la solución
 
-Nuestro sistema:
+Nuestro sistema trabaja con los socios y los datos de contabilidad de la peña/asociación.
 
-* Importa una base de datos pública de recetas de cocina, expandiéndola con recetas propias.
-* Transforma una foto de un ticket de compra, extrayendo el texto de la misma y usándolos como ingredientes a la hora de localizar la receta.
-* Tiene en cuenta posibles faltas ortográficas comunes en la entrada manual de ingredientes (ceboya vs. cebolla, por ejemplo).
-* Calcula una o más recetas que se ajusten a los ingredientes proporcionados por el usuario.
-* Permite al usuario visualizar y extraer los ingredientes que le falten por comprar en caso de que no tuviera suficientes ingredientes.
-* Valida que la(s) receta(s) proporcionada(s) coincida(n) en la medida de lo posible con los ingredientes del usuario.
-* Calcula el precio aproximado de compra de los ingredientes restantes, en caso de tener suficientes datos para ello.
+El administrador del sistema se encargará de introducir los datos iniciales, mediante un proceso guiado para que resulte lo más sencillo posible, sin posibilidad de fallo.
 
-Con los puntos anteriores, le estaremos proporcionando al usuario (y cliente) recetas que podrá usar con los ingredientes que tenga disponible, así como donde comprar los ingredientes que no posea para que le resulte lo más barato posible.
-Esto soluciona los problemas expuestos ya que:
+Este será nuestro modelo, tendremos:
 
-* Le proporcionamos al usuario recetas que puede realizar, aportándole conocimiento que puede usar para comer de forma más variada y equilibrada.
-* Le proporcionamos al usuario una sugerencia para ahorrar dinero en el caso de que quiera realizar alguna receta para la que le falte ingredientes, ayudándolo así a combatir la subida de precios.
+* Socios.
+* Datos económicos.
+* Información sobre los productos.
 
-### Flujo de los datos
+El personal de barra cobrará de las tarjetas RFID/QR a los socios, y los cambios quedarán reflejados a tiempo real para todos los usuarios.
 
-1. Se introduce una foto o una lista de ingredientes.
-2. Si es una foto:
-
-   Se extraen los ingredientes mediante reconocimiento de texto, se añaden a la lista y se vuelve al primer paso. Los precios de los distintos elementos comprados se guardan para futuras comparativas de precios.
-
-   Si es una lista de ingredientes, se sigue al paso 3.
-3. Se hace una búsqueda de las posibles recetas que contengan el mayor número de ingredientes de los introducidos.
-4. En el caso de faltar ingredientes, se hace comparativa de precio, indicando al usuario dónde le resultaría más barato comprar los ingredientes restantes para cada receta.
-5. Los datos procesados en los pasos anteriores se juntaran para
+El socio podrá recargar dinero, viéndose esto reflejado inmediatamente en el saldo de su tarjeta.
 
 ---
 
 ## Posibles clientes
 
-Los principales **clientes** serían **usuarios ocasionales** que usarían la aplicación para obtener ideas sobre qué comida cocinar en un momento determinado.
-
-La aplicación web sería monetizable a través de la **venta de los datos de los usuarios** (dónde suelen comprar más, qué ingredientes se suelen comprar más, que marcas prefieren frente a otras...) a organizaciones y empresas.
+Los clientes serían las peñas y asociaciones, que pagarían una subscripción por el accesso a las funcionalidades que ofrecemos.
 
 ---
 
@@ -81,13 +78,7 @@ El despliegue en la nube de cualquier sistema tiene las siguientes ventajas:
 
 ### Porqué este sistema debería estar en la nube
 
-Este sistema nace con la mentalidad de que sea **independiente del sistema operativo**, es decir, que se pueda usar tanto para Android, como para IOS, como para Linux, Microsoft...
-
-El estar en la nube permitiría una integración más sencilla con el frontend, además de quitar al usuario de problemas de espacio en su dispositivo.
-
-Por otro lado, el desarrollo será más sencillo, ya que no tendremos que ajustarnos a todos los tipos de dispositivo, modificando el código para cada sistema operativo.
-
-En resumen, no queremos una aplicación convencional, queremos algo que no depende del dispositivo, lo que nos lleva indudablemente a la nube.
+Este sistema necesita de actualizaciones en tiempo real de todos los valores, es decir, necesitamos que los datos se encuentren centralizados entre todos los usuarios. Tan solo con esto, ya se nos deja claro que es necesario que el despliegue del backend se realice en la nube.
 
 ---
 
