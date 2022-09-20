@@ -4,59 +4,43 @@ Las peñas y pequeñas asociaciones suelen hacer "barras" o pequeñas fiestas pa
 
 Es necesario llevar un control acerca de la contabilidad de la asociación o peña, lo cual se vuelve complicado, ya que o bien se lleva a papel (que acaba perdiéndose) o el software existente no está adaptado a la naturaleza de una peña/asociación. En muchos de estos casos, la gestión es tal que no se sabe cúanto se consume de cada cosa, comprando siempre por "intuición" a la hora de reponer el inventario.
 
-Muchas peñas además, organizan "premios" repartidos entre aquellos que más consumen durante estas barras o fiestas, y llevar un control de esto resulta muy tedioso sin el software adecuado.
-
 ## Sintetización del problema
 
 * Gestión de las cuentas de la asociación/peña durante las barras o fiestas que organiza, prescindiendo del papel y solucionando posibles pérdidas de datos.
 * Procesado de cúanto se consume y qué se consume, ofreciendo estadísticas disponibles a la administración de la asociación/peña, que posteriormente podrán usar para adaptar las compras según los informes generados.
+* Dificultad a la hora de reponer el inventario debido a una mala gestión durante las fiestas.
 
 ---
 
 ## Propuesta de la solución
 
-Se propone un sistema que ofrezca a una asociación o peña prescindir de los tickets y del dinero físico, asignando a cada socio un identificador, en el que el socio podrá cargar dinero en la administración de la asociación/peña.
+Se permite la generación de informes con los datos disponibles, que resuelvan problemas como los comentados anteriormente (falta de información sobre el inventario, cuentas a papel que desaparece, no saber qué comprar para la próxima fiesta).
 
-Este identificador se usará por el personal de barra para cobrar las consumiciones del socio, prescindiendo del dinero "real".
-Esto permite llevar un registro completo de qué se ha gastado, quién ha consumido qué y cúanto ha consumido cada uno.
-
-A su vez, se permite la generación de informes con los datos disponibles, que resuelvan problemas como los comentados anteriormente (falta de información sobre el inventario, cuentas a papel que desaparece, gente que no paga...)
+Se pueden marcar ingresos periódicos, como serían la subscripción de los socios, indicando la cantidad y el día del mes en el que se recibe.
 
 El administrador del sistemas podrá:
 
 * Introducir el dinero que se encuentra en caja y el inventario de cada bebida.
-* Dar de alta a nuevos socios, asignando un identificador a unos datos.
-* Dar de baja a socios que dejen de formar parte de la asociación.
 * Variar los precios de los productos en venta.
 * Variar los productos en venta (añadir/quitar productos).
-* Nombrar encargados de barra, ya que en las peñas suele variar entre fiestas quién se encarga de la barra.
 * Obtener un informes en un formato manejable (Excel) con el estado actual de las cuentas en cualquier momento.
 * Introducir gastos e inversiones, por ejemplo, con la compra de productos nuevos y pagos.
-* Obtener un ranking de personas que más han consumido desde una fecha concreta.
-
-El usuario podrá:
-
-* Consultar su saldo en cualquier momento, mediante su identificador.
-* Consultar su gasto desde una fecha concreta.
-* Consultar su posición en el ranking de consumiciones desde una fecha.
+* Introducir la fecha de la siguiente fiesta/barra, para la que el sistema le hará una estimación de las cantidades a comprar de cada producto o si hay suficiente, al igual que una estimación de los beneficios y gastos.
 
 ---
 
 ## Lógica de negocio detrás de la solución
 
-Nuestro sistema trabaja con los socios y los datos de contabilidad de la peña/asociación.
+Nuestro sistema trabaja con los datos de contabilidad de la peña/asociación y con los datos de cada fiesta.
 
-El administrador del sistema se encargará de introducir los datos iniciales, mediante un proceso guiado para que resulte lo más sencillo posible, sin posibilidad de fallo.
+El administrador del sistema se encargará de introducir los datos, mediante un proceso guiado para que resulte lo más sencillo posible, sin posibilidad de fallo.
 
 Este será nuestro modelo, tendremos:
 
-* Socios.
 * Datos económicos.
 * Información sobre los productos.
 
-El personal de barra cobrará de los identificadores a los socios, y los cambios quedarán reflejados a tiempo real para todos los usuarios.
-
-La idea y el valor de la misma reside en establecer orden en un grupo que suele ser caótico, proporcionándoles los métodos para tener una visión única de la gestión de la peña/asociación.
+Nuestro sistema llevará la contabilidad de la peña/asociación, a la vez que le generará informes y predicciones para futuras cuentas a los administradores de la peña/asociación.
 
 ---
 
@@ -78,7 +62,7 @@ El despliegue en la nube de cualquier sistema tiene las siguientes ventajas:
 
 ### Porqué este sistema debería estar en la nube
 
-Este sistema necesita de actualizaciones en tiempo real de todos los valores, es decir, necesitamos que los datos se encuentren centralizados entre todos los usuarios. Tan solo con esto, ya se nos deja claro que es necesario que el despliegue del backend se realice en la nube.
+Este sistema necesita de actualizaciones en tiempo real de todos los valores, es decir, necesitamos que los datos se encuentren centralizados entre todos los usuarios, ya que los administradores deben de ser capaces de interactuar a la vez con el sistema y desde distintos dispositivos. Tan solo con esto, ya se nos deja claro que es necesario que el despliegue del backend se realice en la nube.
 
 ---
 
