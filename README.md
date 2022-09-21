@@ -1,41 +1,45 @@
 # Propuesta del problema
 
-El problema que vamos a enfocar se da en peñas y asociaciones, generalmente pequeñas.
+El administrador de una empresa dedica demasiado tiempo a la elaboración, envío y organización de documentos para los clientes de la misma.
 
-En estas peñas y asociaciones se suelen realizar fiestas.
-
-Durante estas fiestas se dan los siguientes problemas:
-
-* Se pierden los tickets de las consumiciones.
-* No se lleva el control del inventariado.
-* Se acaban ciertos productos (cerveza, tinto, comida...).
-
-Estos problemas tienen una solución.
+Se tiene la plantilla de los documentos, pero el administrador tiene que escribir, mandar y organizar los documentos uno a uno.
 
 ---
 
 ## Propuesta de la solución
 
-Nuestro sistema resuelve los problemas expuestos de la siguiente manera:
+Nuestro sistema resuelve el problema de la siguiente forma:
 
-* Llevará la contabilidad de la peña/asociación, mediante una interfaz sencilla.
-* Durante las fiestas se podrá marcar que producto se va consumiendo, permitiendo llevar un control del inventariado disponible.
-* Generará informes predictivos sobre las próximas fiestas:
-  * Calculará los productos faltantes para que la fiesta se desarrolle con normalidad.
-  * Predecirá los beneficios resultantes.
-  * Generará una simulación de cómo quedaría el inventario después de la fiesta.
+Partiendo de la plantilla, el administrador introduce la lista de nombres y correos de las personas a las que va dirigida el documento.
+Nuestro sistema genera y envía esos documentos, personalizados a la persona.
+
+Una vez la persona lo manda de vuelta, sistema organiza los documentos según el tipo y la persona, para que el administrador tenga un fácil acceso a los mismos.
 
 ---
 
 ## Posibles clientes
 
-Los clientes serían las peñas y asociaciones, que pagarían una subscripción por el accesso a las funcionalidades que ofrecemos.
+Los clientes serían las empresas que necesiten de una generación y organización de documentos, por ejemplo, un Colegio Mayor, que necesita generar, enviar y organizar un gran número de documentos relacionados con los colegiales al año.
+
+Estos documentos tienen una plantilla base, pero personalizados con el nombre de la persona a la que van dirigidos.
 
 ---
 
 ## Por qué en la nube
 
-Dado que una peña/asociación puede tener varias personas al cargo, es necesario que nuestro sistema sea accesible desde cualquier parte, por lo que el backend deberá estar en internet para que sea funcional a tiempo real para todos los responsables de una peña.
+Esta aplicación es óptima para la nube, ya que nos permitiría acceder a los documentos ya organizados desde cualquier parte.
+
+Además, el hecho de que no estuviera en la nube y fuera una aplicación en el ordenador del administrador haría necesario que este se mantuviera siempre encendido y con el sistema funcionando para la organización y el acceso a los documentos.
+
+---
+
+## Lógica de negocio
+
+Como expresamos en la propuesta del problema, el administrador dedica demasiado tiempo a la generación y organización de documentos, lo que no permite que se dedique a otras tareas.
+
+Nuestra solución permite que el administrador de la empresa quede libre de la generación y organización de los mismos, centrándose en otras tareas.
+
+Nuestra solución además liberaría al administrador de enviar mails de confirmación, ya que se podría automatizar el proceso de que el cliente recibiera un mail de confirmación si su documento ha sido recibido correctamente.
 
 ---
 
