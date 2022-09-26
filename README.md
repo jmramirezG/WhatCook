@@ -1,6 +1,6 @@
 # WhatCook
 
-[![Python](https://shields.io/badge/status-PRE--ALPHA-orange?logo=githubsponsors&style=for-the-badge)](#)
+[![](https://shields.io/badge/LICENSE-AGPL-green?logo=readthedocs&style=for-the-badge)](#) [![](https://shields.io/badge/status-PRE--ALPHA-orange?logo=githubsponsors&style=for-the-badge)](#)
 
 ## Propuesta del problema
 
