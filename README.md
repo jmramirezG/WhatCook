@@ -1,4 +1,8 @@
-# Propuesta del problema
+# WhatCook
+
+[![](https://shields.io/badge/LICENSE-AGPL-green?logo=readthedocs&style=for-the-badge)](#) [![](https://shields.io/badge/status-PRE--ALPHA-orange?logo=githubsponsors&style=for-the-badge)](#)
+
+## Propuesta del problema
 
 El administrador de una empresa dedica demasiado tiempo a la elaboración, envío y organización de documentos para los clientes de la misma.
 
@@ -46,6 +50,9 @@ Nuestra solución además liberaría al administrador de enviar mails de confirm
 ## Docs
 
 * [Objetivo 0](docs/objetivo0/git_config.md).
+* [Personas](docs/Personas.md)
+* [Milestones](docs/milestones.md)
+* [Historias de usuario](docs/user-stories.md)
 
 ---
   
