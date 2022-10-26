@@ -8,8 +8,8 @@ import (
 import  "pdftron/Samples/LicenseKey/GO"
 
 type Documento struct {
-	path      []string
-	reemplazo []string
+	path      string
+	reemplazo string
 }
 
 func (d Documento) generaDocumento(pathGuardado []string) ([]string) {
