@@ -1,0 +1,11 @@
+# https://taskfile.dev
+
+version: '3'
+
+vars:
+  check_dirs: internal/
+
+tasks:
+  check:
+    cmds:
+      - gofmt -w {{.check_dirs}}
