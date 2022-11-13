@@ -49,6 +49,8 @@ Para ejecutar el proyecto tenemos dos opciones:
 * [Personas](docs/Personas.md).
 * [Milestones](docs/milestones.md).
 * [Historias de usuario](docs/user-stories.md).
+* [Elección del gestor de tareas](docs/gestor-tareas.md).
+* [Elección del gestor de dependencias](docs/gestor-gestor_dependencia.md).
 
 ---
   
