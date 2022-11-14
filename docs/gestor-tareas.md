@@ -11,7 +11,7 @@
 
 ## Gestores de tareas considerados
 
-Vamos a considerar los 4 siguientes gestores de dependencias:
+Vamos a considerar los 3 siguientes gestores de tareas:
 
 * [Gilbert](https://github.com/go-gilbert/gilbert).
 * [Realize](https://github.com/oxequa/realize).
