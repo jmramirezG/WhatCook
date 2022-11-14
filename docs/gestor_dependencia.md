@@ -50,13 +50,15 @@ Además, puesto que migra de código de [ByteDance](https://en.wikipedia.org/wik
 
 ---
 
-## Go Modules
+### Go Modules
 
 [Go Modules](https://go.dev/blog/using-go-modules) es el gestor de dependencias que está disponible de forma nativa a Go desde la versión 1.11.
 
 Al ser oficial, tenemos abundante documentación y está actualizado al día.
 
 Su uso resulta sencillo, teniendo manuales bastante extensos en la propia web de Go.
+
+---
 
 ## Qué vamos a usar
 

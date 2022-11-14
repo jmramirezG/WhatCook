@@ -1,5 +1,14 @@
 # Elección del gestor de tareas
 
+## Criterios de qué consideramos un buen gestor de tareas
+
+* Facilidad de uso.
+* Actualizado.
+* Poca instalación necesaria.
+* Documentación abundante.
+
+---
+
 Como gestor de tareas hemos elegido [Task](https://taskfile.dev/), como hemos comentado en el issue #11.
 
 ## Por qué Task?
