@@ -26,21 +26,23 @@ task check
 
 ---
 
-## Ejecutar el proyecto
+### Ejecutar el proyecto
 
 Para ejecutar el proyecto tenemos dos opciones:
 
 * Hacer build y luego ejecutar:
   
   ```bash
-  go build && ./<nombreejecutable>
+  task build && ./<nombreEjecutable> (WhatCook por defecto)
   ```
 
 * Hacer build y ejecutar en la misma orden:
   
   ```bash
-  go run .
+  task run
   ```
+
+---
 
 ## Más documentación
 
