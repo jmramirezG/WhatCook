@@ -21,7 +21,7 @@ Vamos a considerar los 3 siguientes gestores de tareas:
 
 ### Gilbert
 
-[Gilbert](https://github.com/go-gilbert/gilbert) es un gestor de tareas estilo ```Graden``` y ```Maven```, buscando una sintaxis declarativa.
+[Gilbert](https://github.com/go-gilbert/gilbert) es un gestor de tareas estilo ```Gradle``` y ```Maven```, buscando una sintaxis declarativa.
 
 LLeva desde junio de 2019 sin recibir ninguna actualización, por lo que no tiene mucho soporte a día de hoy.
 
