@@ -1,3 +1,7 @@
 lenguaje: Go
 
 entidad: [internal/cliente.go, internal/documento.go]
+
+automatizar:
+  fichero: Taskfile.yaml
+  orden: task
