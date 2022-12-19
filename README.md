@@ -54,7 +54,8 @@ Para ejecutar el proyecto tenemos dos opciones:
 
 ## Más documentación
 
-* [Descripción del problema](docs/old_README.md)
+* [Descripción del problema](docs/old_README.md).
+* [Instalación de PDFTron](docs/pdftron.md).
 * [Objetivo 0](docs/objetivo0/git_config.md).
 * [Personas](docs/Personas.md).
 * [Milestones](docs/milestones.md).
