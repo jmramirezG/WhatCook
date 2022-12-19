@@ -33,3 +33,15 @@ func TestPathExists(t *testing.T) {
 
 	assert.Assert(t, doc_exists.pathExists(), "Path does not exists when it should")
 }
+
+func TestGenerateDocument(t *testing.T) {
+	doc := Documento{"../testData/testTemplate.docx", "'name': 'test'"}
+
+	assert.Assert(t, !doc.pathExists(), "Path exists when it should not")
+
+	doc.generateDocument("../testData/testPdf.ignore")
+
+	assert.Assert(t, doc.pathExists(), "Path does not exists when it should")
+
+	assert.Equal(t, doc.getFirstLine(), "test", "The text written from the template does not match the text we were supposed to write")
+}
