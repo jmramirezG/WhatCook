@@ -24,6 +24,14 @@ Tenemos que colocarnos en el directorio raíz y ejecutar:
 task check
 ```
 
+### Ejecutar los tests
+
+Tenemos que colocarnos en el directorio raíz y ejecutar:
+
+```bash
+task test
+```
+
 ---
 
 ### Ejecutar el proyecto
