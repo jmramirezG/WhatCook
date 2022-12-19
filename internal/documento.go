@@ -18,7 +18,17 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 package WhatCook
 
+import (
+	"errors"
+	"os"
+)
+
 type Documento struct {
 	path      string
 	reemplazo string
+}
+
+func (d Documento) pathExists() bool {
+	_, err := os.Stat(d.path)
+	return !errors.Is(err, os.ErrNotExist)
 }
