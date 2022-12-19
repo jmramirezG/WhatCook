@@ -47,7 +47,7 @@ Es más, podemos hacer *mocking* con el paquete de tests de go, como se nos expl
 
 Una vez elegido el *test runner*, podemos darnos cuenta viendo la documentación de que el control de las aserciones es un tanto precario, por lo que vamos a requerir de una librería que nos facilite esto.
 
-Para nuestra suerte, tenemos un paquete de aserciones disponible, llamado gotest, del cual nos interesa su módulo [assert](https://pkg.go.dev/gotest.tools/assert).
+Para nuestra suerte, tenemos un paquete de aserciones disponible, llamado gotest, del cual nos interesa su módulo [assert](https://pkg.go.dev/gotest.tools/v3/assert).
 
 Esta librería facilita enormemente las aserciones que tendremos que definir para nuestros tests. El paquete en cuestión está actualizado, como se puede ver en su [github](https://github.com/gotestyourself/gotest.tools) y está preparado para ser usado con *go modules*.
 
