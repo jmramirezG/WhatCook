@@ -22,7 +22,11 @@ import (
 	"testing"
 
 	"gotest.tools/v3/assert"
+
+	. "pdftron"
 )
+
+import  "pdftron/Samples/LicenseKey/GO"
 
 func TestPathExists(t *testing.T) {
 	doc := Documento{"./nonexistingfile", "replace"}
@@ -37,11 +41,27 @@ func TestPathExists(t *testing.T) {
 func TestGenerateDocument(t *testing.T) {
 	doc := Documento{"../testData/testTemplate.docx", "'name': 'test'"}
 
-	assert.Assert(t, !doc.pathExists(), "Path exists when it should not")
-
-	doc.generateDocument("../testData/testPdf.ignore")
-
 	assert.Assert(t, doc.pathExists(), "Path does not exists when it should")
 
-	assert.Equal(t, doc.getFirstLine(), "test", "The text written from the template does not match the text we were supposed to write")
+	doc.generateDocument("../testData/testPdf.ignore.pdf")
+
+	generated_pdf = NewPDFDoc("./testData/testPdf.ignore.pdf")
+	page := doc.GetPage(1)
+
+	txt := NewTextExtractor()
+	txt.Begin(page) // Read the page
+
+	wordString := ""
+
+	// Extract words one by one.
+	word := NewWord()
+	line := txt.GetFirstLine()
+	for line.IsValid() {
+		word = line.GetFirstWord()
+		for word.IsValid() {
+			wordString = word.GetString()
+		}
+	}
+
+	assert.Equal(t, wordString, "test", "The text written from the template does not match the text we were supposed to write")
 }
