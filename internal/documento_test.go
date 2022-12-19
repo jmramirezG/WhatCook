@@ -26,8 +26,6 @@ import (
 	. "pdftron"
 )
 
-import  "pdftron/Samples/LicenseKey/GO"
-
 func TestPathExists(t *testing.T) {
 	doc := Documento{"./nonexistingfile", "replace"}
 
@@ -39,14 +37,14 @@ func TestPathExists(t *testing.T) {
 }
 
 func TestGenerateDocument(t *testing.T) {
-	doc := Documento{"../testData/testTemplate.docx", "'name': 'test'"}
+	doc := Documento{"../testData/testTemplate.docx", `{"name": "test"}`}
 
 	assert.Assert(t, doc.pathExists(), "Path does not exists when it should")
 
 	doc.generateDocument("../testData/testPdf.ignore.pdf")
 
-	generated_pdf = NewPDFDoc("./testData/testPdf.ignore.pdf")
-	page := doc.GetPage(1)
+	generated_pdf := NewPDFDoc("../testData/testPdf.ignore.pdf")
+	page := generated_pdf.GetPage(1)
 
 	txt := NewTextExtractor()
 	txt.Begin(page) // Read the page
