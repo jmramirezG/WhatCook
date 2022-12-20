@@ -54,9 +54,9 @@ func TestGenerateDocument(t *testing.T) {
 	// Extract words one by one.
 	word := NewWord()
 	line := txt.GetFirstLine()
-	for line.IsValid() {
+	if line.IsValid() {
 		word = line.GetFirstWord()
-		for word.IsValid() {
+		if word.IsValid() {
 			wordString = word.GetString()
 		}
 	}
