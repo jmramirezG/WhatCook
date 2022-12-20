@@ -21,27 +21,33 @@ package WhatCook
 import (
 	"testing"
 
-	"gotest.tools/v3/assert"
+	"github.com/stretchr/testify/assert"
 
 	. "pdftron"
 )
 
 func TestPathExists(t *testing.T) {
+	assert := assert.New(t)
+
 	doc := Documento{"./nonexistingfile", "replace"}
 
 	doc_exists := Documento{"./documento.go", "replace"}
 
-	assert.Assert(t, !doc.pathExists(), "Path exists when it should not")
+	assert.True(!doc.pathExists(), "Path exists when it should not")
 
-	assert.Assert(t, doc_exists.pathExists(), "Path does not exists when it should")
+	assert.True(doc_exists.pathExists(), "Path does not exists when it should")
 }
 
 func TestGenerateDocument(t *testing.T) {
+	assert := assert.New(t)
+
 	doc := Documento{"../testData/testTemplate.docx", `{"name": "test"}`}
 
-	assert.Assert(t, doc.pathExists(), "Path does not exists when it should")
+	assert.True(doc.pathExists(), "Path does not exists when it should")
 
 	doc.generateDocument("../testData/testPdf.ignore.pdf")
+
+	assert.FileExists("../testData/testPdf.ignore.pdf")
 
 	generated_pdf := NewPDFDoc("../testData/testPdf.ignore.pdf")
 	page := generated_pdf.GetPage(1)
@@ -61,5 +67,5 @@ func TestGenerateDocument(t *testing.T) {
 		}
 	}
 
-	assert.Equal(t, wordString, "test", "The text written from the template does not match the text we were supposed to write")
+	assert.Equal(wordString, "test", "The text written from the template does not match the text we were supposed to write")
 }
