@@ -20,6 +20,8 @@ Para que el *test runner* que escojamos sea válido, necesitamos que contenga la
 
 Hemos tenido cierta dificultad a la hora de encontrar *test runners* para Go, ya que Go cuenta con [su propio *test runner*](https://pkg.go.dev/testing), por lo que gran parte de la información encontrada en internet remite a este.
 
+Tenemos algunos *frameworks* que se construyen sobre este, como que es el caso de [ginkgo](https://github.com/onsi/ginkgo), o de librerías que aumentan la funcionalidad como el caso de [testify](https://github.com/stretchr/testify), las cuales no será necesario usar completas.
+
 A falta de haber encontrado uno mejor (que no estuviera completamente dedicado a apis), usaremos el paquete *testing* de Go.
 
 Este *test runner* cumple con casi todas las condiciones anteriormente mencionadas ya que:
@@ -47,9 +49,13 @@ Es más, podemos hacer *mocking* con el paquete de tests de go, como se nos expl
 
 Una vez elegido el *test runner*, podemos darnos cuenta viendo la documentación de que el control de las aserciones es un tanto precario, por lo que vamos a requerir de una librería que nos facilite esto.
 
-Para nuestra suerte, tenemos un paquete de aserciones disponible, llamado gotest, del cual nos interesa su módulo [assert](https://pkg.go.dev/gotest.tools/v3/assert).
+Tenemos disponibles muchas alternativas:
 
-Esta librería facilita enormemente las aserciones que tendremos que definir para nuestros tests. El paquete en cuestión está actualizado, como se puede ver en su [github](https://github.com/gotestyourself/gotest.tools) y está preparado para ser usado con *go modules*.
+* Módulo [assert](https://pkg.go.dev/gotest.tools/v3/assert) de la librería [gotest](https://pkg.go.dev/gotest.tools/v3), la cual aumenta la funcionalidad del paquete *testing* por defecto de *Go*, solventando las pequeñas carencias.
+* Módulo [assert](https://pkg.go.dev/github.com/stretchr/testify/assert) de la librería [testify](https://github.com/stretchr/testify), la cual, una vez más, ofrece módulos que mejoran la funcionalidad del paquete *testing*.Este módulo *assert* ofrece más funcionalidad que aquel de la librería *gotest*.
+* Paquete [assertgo](https://github.com/assertgo/assert), el cual se define como "la librería de aserciones más guay para go" que aunque ofrezca un uso bastante atractivo como se aprecia en el ejemplo de su github, lleva 8 años sin ser actualizada.
+
+Debido a que en un gran número de webs recomiendan el uso de *testify* como librería, vamos a usar su módulo *assert*.
+Esta librería facilita enormemente las aserciones que tendremos que definir para nuestros tests. El paquete en cuestión está actualizado, como se puede ver en su [github](https://github.com/stretchr/testify) y está preparado para ser usado con *go modules*.
 
 Al usar tan solo una parte de la librería completa, no debería de aumentar demasiado el peso de nuestro sistema.
-
