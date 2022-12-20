@@ -4,6 +4,7 @@ version: '3'
 
 vars:
   check_dirs: .
+  test_dirs: ./internal
 
 tasks:
   check:
@@ -11,6 +12,7 @@ tasks:
       - gofmt -w {{.check_dirs}}
 
   modules:
+    deps: [test]
     cmds:
       - go mod tidy
     aliases: [mod]
@@ -24,3 +26,7 @@ tasks:
     deps: [build]
     cmds:
       - go run .
+  
+  test:
+    cmds:
+      - go test {{.test_dirs}}

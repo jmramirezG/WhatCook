@@ -5,3 +5,5 @@ entidad: [internal/cliente.go, internal/documento.go]
 automatizar:
   fichero: Taskfile.yaml
   orden: task
+
+test: internal/documento_test.go

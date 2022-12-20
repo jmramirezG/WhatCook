@@ -19,16 +19,19 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 package WhatCook
 
 import (
-	"errors"
-	"os"
+	"testing"
+
+	"github.com/stretchr/testify/assert"
 )
 
-type Documento struct {
-	path      string
-	reemplazo string
-}
+func TestPathExists(t *testing.T) {
+	assert := assert.New(t)
 
-func (d Documento) pathExists() bool {
-	_, err := os.Stat(d.path)
-	return !errors.Is(err, os.ErrNotExist)
+	doc := Documento{"./nonexistingfile", "replace"}
+
+	doc_exists := Documento{"./documento.go", "replace"}
+
+	assert.True(!doc.pathExists(), "Path exists when it should not")
+
+	assert.True(doc_exists.pathExists(), "Path does not exists when it should")
 }

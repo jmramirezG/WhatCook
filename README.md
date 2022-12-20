@@ -24,6 +24,14 @@ Tenemos que colocarnos en el directorio raíz y ejecutar:
 task check
 ```
 
+### Ejecutar los tests
+
+Tenemos que colocarnos en el directorio raíz y ejecutar:
+
+```bash
+task test
+```
+
 ---
 
 ### Ejecutar el proyecto
@@ -46,7 +54,7 @@ Para ejecutar el proyecto tenemos dos opciones:
 
 ## Más documentación
 
-* [Descripción del problema](docs/old_README.md)
+* [Descripción del problema](docs/old_README.md).
 * [Objetivo 0](docs/objetivo0/git_config.md).
 * [Personas](docs/Personas.md).
 * [Milestones](docs/milestones.md).
