@@ -21,6 +21,8 @@ package WhatCook
 import (
 	"errors"
 	"os"
+	. "pdftron"
+	"pdftron/Samples/LicenseKey/GO"
 )
 
 type Documento struct {
@@ -31,4 +33,16 @@ type Documento struct {
 func (d Documento) pathExists() bool {
 	_, err := os.Stat(d.path)
 	return !errors.Is(err, os.ErrNotExist)
+}
+
+func (d Documento) generateDocument(outPath string) {
+	PDFNetInitialize(PDFTronLicense.Key)
+	
+	templateDoc := ConvertCreateOfficeTemplate(d.path, NewOfficeToPDFOptions())
+
+	// Fill the template with data from a JSON string, producing a PDF document.
+	pdfDoc := templateDoc.FillTemplateJson(d.reemplazo)
+
+	// Save the PDF to a file.
+	pdfDoc.Save(outPath, uint(SDFDocE_linearized))
 }
